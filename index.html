@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoPro | Car Buying & Consulting</title>
+  <meta name="description" content="Expert car buying advice. We help you choose, negotiate, and drive away with confidence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="intro-overlay" id="introOverlay" aria-hidden="true">
+    <div class="intro-car-wrap">
+      <div class="intro-smoke" aria-hidden="true">
+        <span class="intro-smoke-puff intro-smoke-puff-1"></span>
+        <span class="intro-smoke-puff intro-smoke-puff-2"></span>
+        <span class="intro-smoke-puff intro-smoke-puff-3"></span>
+        <span class="intro-smoke-puff intro-smoke-puff-4"></span>
+        <span class="intro-smoke-puff intro-smoke-puff-5"></span>
+      </div>
+      <img src="assets/car.png" alt="" class="intro-car" />
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">AutoPro</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <a href="#services">Services</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#process">Process</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact" class="btn btn-outline">Get Started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="hero-badge" data-animate>Expert car consulting</p>
+        <h1 class="hero-title" data-animate>
+          Buy the right car.<br />
+          <span class="accent">At the right price.</span>
+        </h1>
+        <p class="hero-subtitle" data-animate>
+          We guide you through research, negotiation, and purchase—so you drive away with confidence and zero regret.
+        </p>
+        <div class="hero-cta" data-animate>
+          <a href="#contact" class="btn btn-primary">Book a consultation</a>
+          <a href="#process" class="btn btn-ghost">How it works</a>
+        </div>
+      </div>
+      <div class="hero-scroll" data-animate>
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <p class="section-label" data-animate>What we do</p>
+        <h2 class="section-title" data-animate>Services</h2>
+        <div class="services-grid">
+          <article class="card" data-animate>
+            <div class="card-icon">🔍</div>
+            <h3>Research & shortlist</h3>
+            <p>We compare models, trim levels, and reliability so you get a clear shortlist that fits your needs and budget.</p>
+          </article>
+          <article class="card" data-animate>
+            <div class="card-icon">💬</div>
+            <h3>Negotiation</h3>
+            <p>Our team handles dealer discussions and gets you a fair deal—often below sticker—without the stress.</p>
+          </article>
+          <article class="card" data-animate>
+            <div class="card-icon">📋</div>
+            <h3>Inspection & paperwork</h3>
+            <p>Pre-purchase checks and clean paperwork. We make sure you're protected before you sign.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why-us" id="why-us">
+      <div class="container">
+        <p class="section-label" data-animate>Trust</p>
+        <h2 class="section-title" data-animate>Why choose us</h2>
+        <div class="stats">
+          <div class="stat" data-animate>
+            <span class="stat-value" data-count="500">0</span>
+            <span class="stat-label">Happy clients</span>
+          </div>
+          <div class="stat" data-animate>
+            <span class="stat-value" data-count="12">0</span>
+            <span class="stat-suffix">+</span>
+            <span class="stat-label">Years experience</span>
+          </div>
+          <div class="stat" data-animate>
+            <span class="stat-value" data-count="98">0</span>
+            <span class="stat-suffix">%</span>
+            <span class="stat-label">Satisfaction</span>
+          </div>
+        </div>
+        <ul class="benefits">
+          <li class="benefit" data-animate><strong>Transparent pricing</strong> — No hidden fees, ever.</li>
+          <li class="benefit" data-animate><strong>Independent advice</strong> — We don’t sell cars; we work for you.</li>
+          <li class="benefit" data-animate><strong>Save time & money</strong> — One consultation can save thousands.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section testimonials-section" id="testimonials">
+      <div class="container">
+        <p class="section-label" data-animate>Reviews</p>
+        <h2 class="section-title" data-animate>What clients say</h2>
+        <div class="testimonials-slider">
+          <div class="testimonials-track" id="testimonialsTrack">
+            <article class="testimonial-card">
+              <div class="testimonial-card-inner">
+                <p class="testimonial-text">"AutoPro found me the exact SUV I wanted and got the price below what I'd negotiated myself. Worth every penny."</p>
+                <p class="testimonial-author">— Priya M.</p>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card-inner">
+                <p class="testimonial-text">"No pressure, just clear advice. I felt confident walking into the dealership and drove out with a great deal."</p>
+                <p class="testimonial-author">— James K.</p>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card-inner">
+                <p class="testimonial-text">"First time buying a car—they handled everything from research to paperwork. Couldn't recommend more."</p>
+                <p class="testimonial-author">— Sarah L.</p>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card-inner">
+                <p class="testimonial-text">"Saved me over $3,000 and countless hours. The consultation alone was worth it for the negotiation tips."</p>
+                <p class="testimonial-author">— David R.</p>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card-inner">
+                <p class="testimonial-text">"Professional, responsive, and genuinely on your side. I'll use them again when I upgrade in a few years."</p>
+                <p class="testimonial-author">— Anya P.</p>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <div class="testimonial-card-inner">
+                <p class="testimonial-text">"Finally someone who explains things in plain English. Got a reliable car within my budget—no stress."</p>
+                <p class="testimonial-author">— Mike T.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="testimonials-dots" id="testimonialsDots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="container">
+        <p class="section-label" data-animate>Simple steps</p>
+        <h2 class="section-title" data-animate>How it works</h2>
+        <ol class="process-list">
+          <li class="process-step" data-animate>
+            <span class="step-num">1</span>
+            <div>
+              <h3>Tell us your needs</h3>
+              <p>Budget, use case, and preferences. We’ll tailor our advice.</p>
+            </div>
+          </li>
+          <li class="process-step" data-animate>
+            <span class="step-num">2</span>
+            <div>
+              <h3>Get your shortlist</h3>
+              <p>We deliver a focused list of options with pros, cons, and pricing.</p>
+            </div>
+          </li>
+          <li class="process-step" data-animate>
+            <span class="step-num">3</span>
+            <div>
+              <h3>We negotiate, you decide</h3>
+              <p>We handle dealer talks; you approve the final deal and drive away.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section videos-section" id="videos">
+      <div class="container">
+        <p class="section-label" data-animate>Watch</p>
+        <h2 class="section-title" data-animate>Videos</h2>
+        <p class="videos-intro" data-animate>Tips, testimonials, and guides. Click play to watch in a clean player—no distractions.</p>
+        <div class="videos-grid">
+          <article class="video-card" data-animate data-youtube-id="kXYvTnaa_H0">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/kXYvTnaa_H0/hqdefault.jpg" alt="" loading="lazy" />
+              <button type="button" class="video-play" aria-label="Play video">
+                <span class="play-icon"></span>
+              </button>
+            </div>
+            <h3>Car buying tips that save you money</h3>
+          </article>
+          <article class="video-card" data-animate data-youtube-id="2O2EMg3eL_s">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/2O2EMg3eL_s/hqdefault.jpg" alt="" loading="lazy" />
+              <button type="button" class="video-play" aria-label="Play video">
+                <span class="play-icon"></span>
+              </button>
+            </div>
+            <h3>How we negotiate for you</h3>
+          </article>
+          <article class="video-card" data-animate data-youtube-id="M7lc1UVf-VE">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/M7lc1UVf-VE/hqdefault.jpg" alt="" loading="lazy" />
+              <button type="button" class="video-play" aria-label="Play video">
+                <span class="play-icon"></span>
+              </button>
+            </div>
+            <h3>What to check before you buy</h3>
+          </article>
+          <article class="video-card video-card-upload" data-animate>
+            <div class="video-thumb video-thumb-upload" id="uploadThumb">
+              <input type="file" id="videoFileInput" accept="video/*" class="video-file-input" />
+              <div class="upload-options">
+                <p>Add your own video</p>
+                <label class="upload-btn" for="videoFileInput">Upload file</label>
+                <span class="upload-or">or</span>
+                <input type="url" id="youtubeUrlInput" class="youtube-url-input" placeholder="Paste YouTube URL" />
+                <button type="button" class="video-play video-play-upload" id="playUploadBtn" aria-label="Play uploaded video" style="display: none;">
+                  <span class="play-icon"></span>
+                </button>
+              </div>
+            </div>
+            <h3>Your video</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="video-modal" id="videoModal" aria-hidden="true">
+      <div class="video-modal-backdrop" id="videoModalBackdrop"></div>
+      <div class="video-modal-inner">
+        <button type="button" class="video-modal-close" id="videoModalClose" aria-label="Close">×</button>
+        <div class="video-modal-player" id="videoModalPlayer"></div>
+      </div>
+    </div>
+
+    <section class="section cta" id="contact">
+      <div class="container cta-inner">
+        <h2 class="cta-title" data-animate>Ready to buy smarter?</h2>
+        <p class="cta-text" data-animate>Book a free 15-minute call. No obligation—just clear, honest advice.</p>
+        <form class="contact-form" id="contactForm" data-animate>
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
+          <input type="tel" name="phone" placeholder="Phone (optional)" />
+          <textarea name="message" rows="3" placeholder="What kind of car are you looking for?"></textarea>
+          <button type="submit" class="btn btn-primary btn-block">Request consultation</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-logo">AutoPro</p>
+      <p class="footer-copy">&copy; 2025 AutoPro Car Consulting. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.865 9.865 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
