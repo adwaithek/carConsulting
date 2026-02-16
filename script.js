@@ -208,6 +208,7 @@
   // ----- Optional: header background on scroll -----
   const header = document.querySelector(".header");
   if (header) {
+    header.style.background = "rgba(248, 250, 252, 0.9)";
     window.addEventListener(
       "scroll",
       function () {
