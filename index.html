@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Car loading loader (commented out)
   <div class="intro-overlay" id="introOverlay" aria-hidden="true">
     <div class="intro-car-wrap">
       <div class="intro-smoke" aria-hidden="true">
@@ -23,10 +24,11 @@
       <img src="assets/car.png" alt="" class="intro-car" />
     </div>
   </div>
+  -->
 
   <header class="header">
     <div class="container header-inner">
-      <a href="#" class="logo">AutoPro</a>
+      <a href="#" class="logo">Auto Consultation Pro</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -38,6 +40,7 @@
         <a href="#process">Process</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#videos">Videos</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact" class="btn btn-outline">Get Started</a>
       </nav>
     </div>
@@ -72,19 +75,19 @@
         <h2 class="section-title" data-animate>Services</h2>
         <div class="services-grid">
           <article class="card" data-animate>
-            <div class="card-icon">🔍</div>
-            <h3>Research & shortlist</h3>
-            <p>We compare models, trim levels, and reliability so you get a clear shortlist that fits your needs and budget.</p>
+            <div class="card-icon">🚗</div>
+            <h3>New car consultation</h3>
+            <p>One-on-one expert guidance to choose the right new car. We align options with your budget, usage, and preferences—so you decide with clarity and confidence.</p>
           </article>
           <article class="card" data-animate>
-            <div class="card-icon">💬</div>
-            <h3>Negotiation</h3>
-            <p>Our team handles dealer discussions and gets you a fair deal—often below sticker—without the stress.</p>
+            <div class="card-icon">🔍</div>
+            <h3>Pre-delivery inspection</h3>
+            <p>Before you take delivery, we inspect the vehicle and paperwork. You get a clear report and peace of mind—no surprises after you drive away.</p>
           </article>
           <article class="card" data-animate>
             <div class="card-icon">📋</div>
-            <h3>Inspection & paperwork</h3>
-            <p>Pre-purchase checks and clean paperwork. We make sure you're protected before you sign.</p>
+            <h3>Research</h3>
+            <p>We shortlist the best models and trims for you. Compare reliability, features, and value in plain language—no jargon, just clear recommendations.</p>
           </article>
         </div>
       </div>
@@ -96,17 +99,26 @@
         <h2 class="section-title" data-animate>Why choose us</h2>
         <div class="stats">
           <div class="stat" data-animate>
-            <span class="stat-value" data-count="500">0</span>
+            <!-- <span class="stat-value" data-count="500">0</span>
+            <span class="stat-label">Happy clients</span> -->
+            <span class="stat-value-wrap">
+              <span class="stat-value" data-count="500">500</span>
+              <span class="stat-suffix">+</span>
+            </span>
             <span class="stat-label">Happy clients</span>
           </div>
           <div class="stat" data-animate>
-            <span class="stat-value" data-count="12">0</span>
-            <span class="stat-suffix">+</span>
+            <span class="stat-value-wrap">
+              <span class="stat-value" data-count="10">0</span>
+              <span class="stat-suffix">+</span>
+            </span>
             <span class="stat-label">Years experience</span>
           </div>
           <div class="stat" data-animate>
-            <span class="stat-value" data-count="98">0</span>
-            <span class="stat-suffix">%</span>
+            <span class="stat-value-wrap">
+              <span class="stat-value" data-count="98">0</span>
+              <span class="stat-suffix">%</span>
+            </span>
             <span class="stat-label">Satisfaction</span>
           </div>
         </div>
@@ -196,7 +208,7 @@
       </div>
     </section>
 
-    <section class="section videos-section" id="videos">
+    <!-- <section class="section videos-section" id="videos">
       <div class="container">
         <p class="section-label" data-animate>Watch</p>
         <h2 class="section-title" data-animate>Videos</h2>
@@ -246,6 +258,61 @@
           </article>
         </div>
       </div>
+    </section> -->
+
+    <section class="section faq-section" id="faq">
+      <div class="faq-heading-wrap">
+        <div class="container">
+          <p class="section-label" data-animate>FAQ</p>
+          <h2 class="section-title" data-animate>Frequently asked questions</h2>
+        </div>
+      </div>
+      <div class="container">
+        <div class="faq-list">
+          <details class="faq-item" data-animate>
+            <summary class="faq-question">Is this consultation completely unbiased?</summary>
+            <div class="faq-answer-wrap">
+              <p class="faq-answer">Yes, absolutely. We are not affiliated with any car brands or dealerships. Our recommendations are based purely on your needs, preferences, and budget — ensuring honest and objective guidance.</p>
+            </div>
+          </details>
+          <details class="faq-item" data-animate>
+            <summary class="faq-question">How long does a consultation usually take?</summary>
+            <div class="faq-answer-wrap">
+              <p class="faq-answer">A typical consultation lasts around 15–20 minutes. However, we’re happy to extend the session whenever necessary to address all your questions.</p>
+            </div>
+          </details>
+          <details class="faq-item" data-animate>
+            <summary class="faq-question">What is the advantage of consulting with a Senior Consultant or Rachit?</summary>
+            <div class="faq-answer-wrap">
+              <p class="faq-answer">With over a decade of industry experience, Rachit brings extensive knowledge across a wide range of vehicles. Our Senior Consultants are equally experienced professionals who offer detailed insights, practical advice, and expert evaluation — helping you make a confident decision.</p>
+            </div>
+          </details>
+          <details class="faq-item" data-animate>
+            <summary class="faq-question">Can I rely on your recommendations?</summary>
+            <div class="faq-answer-wrap">
+              <p class="faq-answer">Certainly. Our experts provide carefully researched, practical, and personalized advice designed to help you choose the right vehicle with confidence.</p>
+            </div>
+          </details>
+          <details class="faq-item" data-animate>
+            <summary class="faq-question">Do I need to book an appointment in advance?</summary>
+            <div class="faq-answer-wrap">
+              <p class="faq-answer">Yes. Scheduling your consultation in advance ensures availability at a time that is most convenient for you.</p>
+            </div>
+          </details>
+          <details class="faq-item" data-animate>
+            <summary class="faq-question">Are consultations available for all types of cars?</summary>
+            <div class="faq-answer-wrap">
+              <p class="faq-answer">Yes. Whether you are considering an entry-level car, a luxury vehicle, an electric model, or a performance-focused option, our team is here to assist you.</p>
+            </div>
+          </details>
+          <details class="faq-item" data-animate>
+            <summary class="faq-question">How can I book a consultation?</summary>
+            <div class="faq-answer-wrap">
+              <p class="faq-answer">Simply complete the form on our website and proceed with the payment. You will then receive a booking link to select your preferred time slot.</p>
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
 
     <div class="video-modal" id="videoModal" aria-hidden="true">
@@ -275,8 +342,8 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <p class="footer-logo">AutoPro</p>
-      <p class="footer-copy">&copy; 2025 AutoPro Car Consulting. All rights reserved.</p>
+      <p class="footer-logo">Auto Consultation Pro</p>
+      <p class="footer-copy">&copy; 2025 Auto Consultation Pro Car Consulting. All rights reserved.</p>
     </div>
   </footer>
 
