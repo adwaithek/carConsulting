@@ -1,16 +1,31 @@
 (function () {
   "use strict";
 
-  // ----- Intro: car drives in, then overlay fades out -----
-  var introOverlay = document.getElementById("introOverlay");
-  if (introOverlay) {
-    window.addEventListener("load", function () {
-      setTimeout(function () {
-        introOverlay.classList.add("is-done");
-        setTimeout(function () {
-          introOverlay.remove();
-        }, 600);
-      }, 2200);
+  // ----- Intro: car drives in, then overlay fades out (commented out) -----
+  // var introOverlay = document.getElementById("introOverlay");
+  // if (introOverlay) {
+  //   window.addEventListener("load", function () {
+  //     setTimeout(function () {
+  //       introOverlay.classList.add("is-done");
+  //       setTimeout(function () {
+  //         introOverlay.remove();
+  //       }, 600);
+  //     }, 2200);
+  //   });
+  // }
+
+  // ----- FAQ: only one accordion open at a time -----
+  var faqList = document.querySelector(".faq-list");
+  if (faqList) {
+    var faqItems = faqList.querySelectorAll(".faq-item");
+    faqItems.forEach(function (details) {
+      details.addEventListener("toggle", function () {
+        if (details.open) {
+          faqItems.forEach(function (other) {
+            if (other !== details) other.open = false;
+          });
+        }
+      });
     });
   }
 
@@ -197,9 +212,9 @@
       "scroll",
       function () {
         if (window.scrollY > 50) {
-          header.style.background = "rgba(13, 17, 23, 0.95)";
+          header.style.background = "rgba(248, 250, 252, 0.98)";
         } else {
-          header.style.background = "rgba(13, 17, 23, 0.85)";
+          header.style.background = "rgba(248, 250, 252, 0.9)";
         }
       },
       { passive: true }
