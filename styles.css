@@ -232,8 +232,10 @@ ol {
   left: 0;
   right: 0;
   z-index: 100;
+  background: #f8fafc;
   background: rgba(248, 250, 252, 0.9);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   transition: background 0.3s, border-color 0.3s;
 }
