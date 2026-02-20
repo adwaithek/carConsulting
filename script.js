@@ -182,26 +182,126 @@
     else testimonialsUpdatePosition();
   });
 
-  // ----- Contact form -----
+  // ----- Contact form (EmailJS) -----
+  // Replace with your EmailJS IDs from https://dashboard.emailjs.com/
+  const EMAILJS_SERVICE_ID = "service_wt9mb4s";
+  const EMAILJS_TEMPLATE_ID = "template_8o95ijh";
+  const EMAILJS_PUBLIC_KEY = "zgq0lA-CPoPQAe9Dl";
+
   const form = document.getElementById("contactForm");
   if (form) {
+    if (typeof emailjs !== "undefined") {
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+    }
+
+    const nameInput = form.querySelector('input[name="name"]');
+    const emailInput = form.querySelector('input[name="email"]');
+    const phoneInput = form.querySelector('input[name="phone"]');
+    const phoneWrap = form.querySelector(".phone-wrap");
+
+    var namePlaceholder = nameInput ? nameInput.placeholder : "Your name";
+    var phonePlaceholder = phoneInput ? phoneInput.placeholder : "Phone Number (10 digits)";
+    var formSuccessMsg = document.getElementById("formSuccessMsg");
+
+    function clearFieldError(input, wrapper, originalPlaceholder) {
+      if (input) {
+        input.classList.remove("is-error");
+        input.placeholder = originalPlaceholder;
+      }
+      if (wrapper) wrapper.classList.remove("is-error");
+    }
+
+    function showFieldError(input, message, wrapper) {
+      if (input) {
+        input.classList.add("is-error");
+        input.placeholder = message;
+      }
+      if (wrapper) wrapper.classList.add("is-error");
+    }
+
+    if (nameInput) {
+      nameInput.addEventListener("input", function () {
+        clearFieldError(nameInput, null, namePlaceholder);
+      });
+    }
+    if (phoneInput) {
+      phoneInput.addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "").slice(0, 10);
+        clearFieldError(phoneInput, phoneWrap, phonePlaceholder);
+      });
+      phoneInput.addEventListener("paste", function () {
+        var self = this;
+        setTimeout(function () {
+          self.value = self.value.replace(/\D/g, "").slice(0, 10);
+        }, 0);
+      });
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
+      var name = nameInput ? nameInput.value.trim() : "";
+      var email = emailInput ? emailInput.value.trim() : "";
+      var phone = phoneInput ? phoneInput.value.trim().replace(/\D/g, "") : "";
+      var valid = true;
+
+      clearFieldError(nameInput, null, namePlaceholder);
+      clearFieldError(phoneInput, phoneWrap, phonePlaceholder);
+
+      if (!name) {
+        showFieldError(nameInput, "Please enter your name.", null);
+        valid = false;
+      }
+      if (!phone) {
+        showFieldError(phoneInput, "Please enter your phone number.", phoneWrap);
+        valid = false;
+      } else if (phone.length !== 10) {
+        showFieldError(phoneInput, "Please enter a valid 10-digit number.", phoneWrap);
+        valid = false;
+      }
+
+      if (!valid) return;
+
       const btn = form.querySelector('button[type="submit"]');
       const originalText = btn.textContent;
       btn.textContent = "Sending…";
       btn.disabled = true;
 
-      setTimeout(function () {
-        btn.textContent = "Request sent ✓";
-        btn.style.background = "var(--border)";
-        form.reset();
-        setTimeout(function () {
+      const templateParams = {
+        name: name,
+        email: email || "(not provided)",
+        phone: "+91 " + phone,
+        message: form.querySelector('textarea[name="message"]').value || "(no message)"
+      };
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams).then(
+        function () {
+          form.reset();
+          clearFieldError(nameInput, null, namePlaceholder);
+          clearFieldError(phoneInput, phoneWrap, phonePlaceholder);
           btn.textContent = originalText;
           btn.disabled = false;
           btn.style.background = "";
-        }, 2500);
-      }, 800);
+          if (formSuccessMsg) {
+            formSuccessMsg.hidden = false;
+            formSuccessMsg.classList.add("is-visible");
+            setTimeout(function () {
+              formSuccessMsg.classList.remove("is-visible");
+              setTimeout(function () {
+                formSuccessMsg.hidden = true;
+              }, 300);
+            }, 5000);
+          }
+        },
+        function (err) {
+          btn.textContent = "Failed – try again";
+          btn.disabled = false;
+          setTimeout(function () {
+            btn.textContent = originalText;
+          }, 3000);
+          console.error("EmailJS error:", err);
+        }
+      );
     });
   }
 
