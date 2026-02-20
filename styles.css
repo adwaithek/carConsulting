@@ -1307,6 +1307,25 @@ ol {
   margin-bottom: 2rem;
 }
 
+.form-success-msg {
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  border-radius: var(--radius);
+  font-weight: 500;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.form-success-msg.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -1351,6 +1370,69 @@ ol {
 .contact-form textarea {
   resize: vertical;
   min-height: 100px;
+}
+
+.contact-form .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-form .form-error {
+  font-size: 0.85rem;
+  color: #dc2626;
+  min-height: 1.25rem;
+}
+
+.contact-form input.is-error,
+.contact-form textarea.is-error {
+  border-color: #dc2626;
+}
+
+.contact-form input.is-error::placeholder,
+.contact-form textarea.is-error::placeholder {
+  color: #dc2626;
+}
+
+.contact-form .phone-wrap {
+  display: flex;
+  align-items: stretch;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.contact-form .phone-wrap:focus-within {
+  border-color: var(--accent);
+}
+
+.contact-form .phone-prefix {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  background: var(--border);
+  color: var(--text-muted);
+  font-size: 1rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+.contact-form .phone-wrap input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+}
+
+.contact-form .phone-wrap input:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.contact-form .phone-wrap.is-error {
+  border-color: #dc2626;
 }
 
 /* ===== Footer ===== */
