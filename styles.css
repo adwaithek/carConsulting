@@ -912,7 +912,7 @@ ol {
   }
 }
 
-/* ===== Testimonials slider ===== */
+/* ===== Testimonials carousel ===== */
 .testimonials-section {
   background: var(--bg-elevated);
 }
@@ -920,20 +920,24 @@ ol {
 .testimonials-slider {
   overflow: hidden;
   margin: 0 -0.5rem 1.5rem;
+  width: 100%;
+  position: relative;
 }
 
 .testimonials-track {
   display: flex;
-  transition: transform 0.45s ease;
+  flex-wrap: nowrap;
+  transition: transform 0.5s ease-in-out;
   will-change: transform;
   --slide-index: 0;
   --slide-page: 0;
 }
 
 .testimonial-card {
-  flex: 0 0 16.666%;
+  flex: 0 0 100%;
   padding: 0 0.5rem;
   min-width: 0;
+  box-sizing: border-box;
 }
 
 .testimonial-card-inner {
@@ -988,19 +992,25 @@ ol {
   transform: scale(1.2);
 }
 
-/* Mobile: 1 testimonial visible, track = 600% */
+/* Mobile: 1 card = full width (20% of track), slide one card at a time */
 @media (max-width: 768px) {
+  .testimonial-card {
+    flex: 0 0 20%;
+  }
   .testimonials-track {
-    width: 600%;
-    transform: translateX(calc(-1 * var(--slide-index) * (100% / 6)));
+    width: 500%;
+    transform: translateX(calc(-1 * var(--slide-index) * 20%));
   }
 }
 
-/* Desktop: 3 testimonials visible, track = 200% */
+/* Desktop: 3 cards visible (track 500/3 % so 3 cards = viewport), slide by page */
 @media (min-width: 769px) {
+  .testimonial-card {
+    flex: 0 0 20%;
+  }
   .testimonials-track {
-    width: 200%;
-    transform: translateX(calc(-1 * var(--slide-page) * 50%));
+    width: calc(500% / 3);
+    transform: translateX(calc(-1 * var(--slide-page) * 60%));
   }
 }
 
