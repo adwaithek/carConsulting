@@ -124,21 +124,31 @@
     counterObserver.observe(el);
   });
 
-  // ----- Testimonials slider: 3 on web, 1 on mobile, auto every 2s -----
+  // ----- Testimonials: desktop 3 in a row (2 pages), mobile 1 card slider loop every 2s -----
   var testimonialsTrack = document.getElementById("testimonialsTrack");
   var testimonialsDots = document.getElementById("testimonialsDots");
   var testimonialsCurrentIndex = 0;
-  var testimonialsTotal = 6;
+  var testimonialsTotal = testimonialsTrack ? testimonialsTrack.querySelectorAll(".testimonial-card").length : 5;
   var testimonialsInterval = null;
+  var desktopPages = 2;
+
+  function isTestimonialsMobile() {
+    return window.matchMedia("(max-width: 768px)").matches;
+  }
 
   function testimonialsUpdatePosition() {
     if (!testimonialsTrack) return;
-    var slidePage = Math.floor(testimonialsCurrentIndex / 3);
-    testimonialsTrack.style.setProperty("--slide-index", String(testimonialsCurrentIndex));
-    testimonialsTrack.style.setProperty("--slide-page", String(slidePage));
+    if (isTestimonialsMobile()) {
+      testimonialsTrack.style.setProperty("--slide-index", String(testimonialsCurrentIndex));
+      testimonialsTrack.style.setProperty("--slide-page", String(0));
+    } else {
+      var slidePage = testimonialsCurrentIndex < 3 ? 0 : 1;
+      testimonialsTrack.style.setProperty("--slide-index", String(testimonialsCurrentIndex));
+      testimonialsTrack.style.setProperty("--slide-page", String(slidePage));
+    }
     if (testimonialsDots) {
       var dots = testimonialsDots.querySelectorAll("button");
-      var activeIndex = window.innerWidth <= 768 ? testimonialsCurrentIndex : slidePage;
+      var activeIndex = isTestimonialsMobile() ? testimonialsCurrentIndex : (testimonialsCurrentIndex < 3 ? 0 : 1);
       dots.forEach(function (btn, i) {
         btn.classList.toggle("is-active", i === activeIndex);
       });
@@ -147,8 +157,8 @@
 
   function testimonialsBuildDots() {
     if (!testimonialsDots) return;
-    var isMobile = window.innerWidth <= 768;
-    var count = isMobile ? 6 : 2;
+    var isMobile = isTestimonialsMobile();
+    var count = isMobile ? testimonialsTotal : desktopPages;
     testimonialsDots.innerHTML = "";
     for (var i = 0; i < count; i++) {
       var btn = document.createElement("button");
@@ -156,7 +166,7 @@
       btn.setAttribute("aria-label", "Go to slide " + (i + 1));
       (function (idx, isMob) {
         btn.addEventListener("click", function () {
-          testimonialsCurrentIndex = isMob ? idx : idx * 3;
+          testimonialsCurrentIndex = isMob ? idx : (idx === 0 ? 0 : 3);
           testimonialsUpdatePosition();
         });
       })(i, isMobile);
@@ -165,21 +175,30 @@
     testimonialsUpdatePosition();
   }
 
+  function testimonialsTick() {
+    if (isTestimonialsMobile()) {
+      testimonialsCurrentIndex = (testimonialsCurrentIndex + 1) % testimonialsTotal;
+    } else {
+      testimonialsCurrentIndex = testimonialsCurrentIndex < 3 ? 3 : 0;
+    }
+    testimonialsUpdatePosition();
+  }
+
   if (testimonialsTrack) {
     testimonialsUpdatePosition();
     testimonialsBuildDots();
-    testimonialsInterval = setInterval(function () {
-      testimonialsCurrentIndex = (testimonialsCurrentIndex + 1) % testimonialsTotal;
-      testimonialsUpdatePosition();
-    }, 2000);
+    testimonialsInterval = setInterval(testimonialsTick, 2000);
   }
 
   window.addEventListener("resize", function () {
-    if (!testimonialsDots) return;
-    var wasMobile = testimonialsDots.querySelectorAll("button").length === 6;
-    var isMobile = window.innerWidth <= 768;
-    if (wasMobile !== isMobile) testimonialsBuildDots();
-    else testimonialsUpdatePosition();
+    if (!testimonialsTrack) return;
+    var wasMobile = testimonialsDots ? testimonialsDots.querySelectorAll("button").length === testimonialsTotal : false;
+    var isMobile = isTestimonialsMobile();
+    if (testimonialsDots && wasMobile !== isMobile) {
+      testimonialsBuildDots();
+    } else if (testimonialsDots) {
+      testimonialsUpdatePosition();
+    }
   });
 
   // ----- Contact form (EmailJS) -----
